@@ -1,0 +1,12 @@
+sequelize model:generate --name Category --attributes name:string,summary:text,imagePath:text
+sequelize model:generate --name Brand --attributes name:string,summary:text,imagePath:text
+sequelize model:generate --name Color --attributes name:string,code:string,imagePath:text
+sequelize model:generate --name Product --attributes name:string,price:decimal,thumbnailPath:text,availability:boolean,summary:text,description:text
+sequelize model:generate --name ProductColor --attributes imagePath:text
+sequelize model:generate --name Specification --attributes name:string,sumary:text
+sequelize model:generate --name ProductSpecification --attributes description:text
+sequelize model:generate --name User --attributes username:string,password:string,email:string,phone:string,fullname:string,avatarPath:text,isAdmin:boolean
+sequelize model:generate --name Comment --attributes message:string,sumary:text,imagepath:text
+sequelize model:generate --name Review --attributes message:string,rating:text
+
+sequelize seed:generate --name demo-category

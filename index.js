@@ -20,26 +20,33 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/sync", (req, res) => {
+  let models = require("./models");
+  models.sequelize.sync().then(() => {
+    res.send("Database sync successfully!");
+  });
+});
+
 app.get("/:page", (req, res) => {
   let banners = {
     // Blog banner
     blog: "Our Blog",
-    'single-blog': "Blog Details",
+    "single-blog": "Blog Details",
 
     // Shop banner
     category: "Shop Category",
-    'single-product': "Product Details",
-    checkout : 'Product Checkout',
-    confirmation: 'Confirmation',
-    cart: 'Shopping Cart',
+    "single-product": "Product Details",
+    checkout: "Product Checkout",
+    confirmation: "Confirmation",
+    cart: "Shopping Cart",
 
     // Page banner
-    login: 'Login',
-    register: 'Register',
-    'tracking-order': 'Tracking',
+    login: "Login",
+    register: "Register",
+    "tracking-order": "Tracking",
 
     // Contact banner
-    contact: 'Contact',
+    contact: "Contact",
   };
   let page = req.params.page;
   res.render(page, { banner: banners[page] });
